@@ -1,0 +1,26 @@
+#! /bin/sh
+#/dev/null 传送到此文件的数据都会被系统丢掉
+#if grep pattern myfile > /dev/null
+#then
+#...
+#else
+#...
+#fi
+
+#/dev/tty
+#当程序打开此文件时，UNIX会自动将它重定向到一个终端
+#
+#
+
+printf "enter new password\n"
+stty -echo
+read pass < /dev/tty
+printf "enteragain\n"
+read pass2 < /dev/tty
+stty echo
+if test $pass == $pass2
+then
+echo "yes"
+else
+echo "no"
+fi
