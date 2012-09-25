@@ -1,0 +1,24 @@
+#! /bin/sh
+#
+
+#ed 只影响一行
+#sed ed的全局作用
+#awk 是一种文本编辑的程序设计语言，能够处理输出格式化的数据
+#
+#sed 's/ma/mm' list
+
+#尽管awk指令与sed指令的结构相同，都由模式和过程两部分组成，但过程本身有很大不同。awk程序更像一种查询语言
+#awk '/ma/{print $1}' list
+#
+awk -F, '{print $2","$0}'
+|
+sort |
+awk -F, ‘$1 ==laststate {
+print "\t" $2
+}
+$1 != laststate {
+laststate=$1
+print $1
+print "\t" $2
+}’
+
