@@ -1,0 +1,13 @@
+#! /bin/sh
+#从结构化文本文件中提取数据
+
+
+
+#单词频率计数
+#
+#tr -cs A-Za-z\' '\n' |
+#tr A-Z a-z |
+#sort |
+#uniq -c
+#sort -k1,1nr -k2 |
+#sed ${1:-25}q
