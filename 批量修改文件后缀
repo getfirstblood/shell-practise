@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+#
+#
+#
+for file in $(ls)
+do 
+mv $file $(echo $file | sed s/jpg$/png/g)
+done
+
+#
+#
+find . -name "*.jpg" |while 
+read file
+do 
+mv $file $(echo $file | sed s/jpg$/png/g)
+done
+
+#
+for file in $(find . -name "*.png")
+do
+mv $file $(echo $file | sed s/jpg$/png/g)
+done
+
+#
+find . -name "*.jpg" |
+awk -F'.' '{print("mv "$0" ."$2".png")}'
